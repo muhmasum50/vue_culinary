@@ -10,13 +10,11 @@
 
       <div class="row mt-3">
         <div class="col">
-          <label class="sr-only" for="inlineFormInputGroup">Cari Makanamu</label>
           <div class="input-group mb-2">
             <input
               v-model="cari"
               type="text"
               class="form-control"
-              id="inlineFormInputGroup"
               placeholder="Cari Makanan Kesukaanmu"
               @keyup="cariMakanan"
             />
