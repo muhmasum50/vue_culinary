@@ -37,44 +37,41 @@
 </template>
 
 <script>
-import Navbar from "@/components/Navbar.vue";
-import CardMakanan from "@/components/CardMakanan.vue";
-import axios from "axios";
+  import Navbar from "@/components/Navbar.vue";
+  import CardMakanan from "@/components/CardMakanan.vue";
+  import axios from "axios";
 
-export default {
-  name: "Makanan",
-  components: {
-    Navbar,
-    CardMakanan,
-  },
-  data() {
-    return {
-      makanan: [],
-      cari: '',
-      info: null,
-      loading: true,
-      errored: false,
-    };
-  },
-  methods: {
-    setMakanan(data) {
-      this.makanan = data;
+  export default {
+    name: "Makanan",
+    components: {
+      Navbar,
+      CardMakanan,
     },
-    cariMakanan() {
+    data() {
+      return {
+        makanan: [],
+        cari: '',
+        info: null,
+        loading: true,
+        errored: false,
+      };
+    },
+    methods: {
+      setMakanan(data) {
+        this.makanan = data;
+      },
+      cariMakanan() {
+        axios
+        .get("http://localhost:3000/products?q="+this.cari)
+        .then((response) => this.setMakanan(response.data))
+        .catch((error) => console.log(error));
+      }
+    },
+    mounted() {
       axios
-      .get("http://localhost:3000/products?q="+this.cari)
-      .then((response) => this.setMakanan(response.data))
-      .catch((error) => console.log(error));
-    }
-  },
-  mounted() {
-    axios
-      .get("http://localhost:3000/products")
-      .then((response) => this.setMakanan(response.data))
-      .catch((error) => console.log(error));
-  },
-};
+        .get("http://localhost:3000/products")
+        .then((response) => this.setMakanan(response.data))
+        .catch((error) => console.log(error));
+    },
+  };
 </script>
-
-<style>
-</style>

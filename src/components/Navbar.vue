@@ -1,41 +1,27 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <b-navbar toggleable="lg" type="light">
     <div class="container">
-        <a class="navbar-brand" href="#">App</a>
-        <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-        >
-        <span class="navbar-toggler-icon"></span>
-        </button>
+      <b-navbar-brand href="#">App</b-navbar-brand>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <router-link class="nav-link" to="/">Home</router-link>
-                </li>
-                <li class="nav-item">
-                    <router-link class="nav-link" to="/makanan">Makanan</router-link>
-                </li>
-            </ul>
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-                <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <router-link class="nav-link" to="/keranjang">Keranjang
-                        <b-icon-cart></b-icon-cart>
-                        <span class="badge badge-primary ml-2">0</span>
-                    </router-link>
-                    
-                </li>
-            </ul>
-        </div>
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav>
+          <router-link class="nav-link" to="/">Home</router-link>
+          <router-link class="nav-link" to="/makanan">Makanan</router-link>
+          <router-link class="nav-link" to="/movie">Movie</router-link>
+        </b-navbar-nav>
+
+        <b-navbar-nav class="ml-auto">
+          <router-link class="nav-link" to="/keranjang"
+            >Keranjang
+            <b-icon-cart></b-icon-cart>
+            <span class="badge badge-primary ml-2">0</span>
+          </router-link>
+        </b-navbar-nav>
+      </b-collapse>
     </div>
-  </nav>
+  </b-navbar>
 </template>
 
 <script>
